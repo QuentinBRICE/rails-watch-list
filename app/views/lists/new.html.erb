@@ -1,0 +1,5 @@
+<h1 class="m-3">New list</h1>
+<%= simple_form_for @list do |f|%>
+  <%= f.input :name, class:"m-5" %>
+  <%= f.submit "Submit list", class: "btn btn-flat m-4" %>
+<% end %>

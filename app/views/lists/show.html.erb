@@ -1,0 +1,23 @@
+<h1 class="fs-2"><strong><%= @list.name %></strong></h1>
+<%= link_to "Add Bookmark", new_list_bookmark_path(@list[:id]), class:"text-decoration-none btn btn-flat" %>
+
+
+<div class="justify-content-around">
+<p class="m-3"><strong>Bookmark</strong></p>
+  <ul class= "p-3 rounded-bottom d-flex flex-column"">
+    <% @list.bookmarks.each do |bookmark| %>
+    <%= bookmark.movie.title %>
+    <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>" width="100">
+    <p><%= bookmark.movie.overview %></p>
+      <p class="list-group-item"><strong>Bookmark: </strong><%= bookmark.comment %>
+      <%= link_to "Delete",
+      bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class:"text-decoration-none btn btn-outline-dark"
+      %>
+      </p>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "Show all lists", lists_path, class:"text-decoration-none btn btn-flat m-3" %>
