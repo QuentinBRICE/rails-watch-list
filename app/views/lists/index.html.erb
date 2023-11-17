@@ -2,3 +2,6 @@
 <% @lists.each do |list| %>
 <h3><%= link_to list.name, list_path(list), class:"text-decoration-none d-flex justify-content-center" %></h3>
 <% end %>
+
+<%= cl_image_tag("ckespdqiophzj1o9pkqo",
+      width: 400, height: 300, crop: :fill) %>
